@@ -1,12 +1,14 @@
 import { useContext } from "react";
 import { FetchDataContext } from "../FetchDataContext";
 import MealCard from "../components/MealCard";
+import NavBar from "../components/NavBar";
 
 const RandomDish = () => {
   const { fetchRandomMeal, showRandom, randomResult } =
     useContext(FetchDataContext);
   return (
     <div className="random-dish">
+      <NavBar />
       <h1 className="random-header">
         YOU DON’T KNOW WHAT TO COOK ? SAY LESS🍝
       </h1>
