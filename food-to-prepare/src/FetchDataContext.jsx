@@ -14,6 +14,18 @@ const FetchDataProvider = ({ children }) => {
   const [randomResult, setRandomResult] = useState(null);
   const [showRandom, setShowRandom] = useState(false);
   const [categories, setCategories] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [countryDishes, setCountryDishes] = useState([]);
+
+  const countryClick = (e) => {
+    const fetchCountryDishes = async () => {
+      const response = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?a=${e.target.value}`
+      );
+      setCountryDishes(response.data.meals);
+    };
+    fetchCountryDishes();
+  };
 
   const modalToggle = (result) => {
     setSelectedResult(result);
@@ -56,6 +68,12 @@ const FetchDataProvider = ({ children }) => {
       const categoriesResponse = await axios.get(
         "https://www.themealdb.com/api/json/v1/1/categories.php"
       );
+
+      const countryNames = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/list.php?a=list`
+      );
+
+      setCountries(countryNames.data.meals);
       setCategories(categoriesResponse.data.categories);
       setSearchResults(response.data.meals);
     };
@@ -78,6 +96,9 @@ const FetchDataProvider = ({ children }) => {
         fetchRandomMeal,
         showRandom,
         categories,
+        countries,
+        countryClick,
+        countryDishes,
       }}
     >
       {children}

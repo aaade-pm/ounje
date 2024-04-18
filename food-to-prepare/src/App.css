@@ -343,3 +343,55 @@ p {
   justify-content: center;
   gap: 10px;
 }
+
+.country-buttons {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 20px 0px 20px;
+}
+
+.country-buttons button {
+  border: 1px solid var(--text-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.country-buttons button:hover {
+  border: 2px solid grey;
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+.country-dishes {
+  padding: 20px 20px 0px 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  gap: 20px;
+}
+
+.dish {
+  height: 210px;
+  width: 250px;
+  border-radius: 10px;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  text-align: center;
+}
+
+.dish-image {
+  width: 100%;
+  height: 60%;
+}
+
+.dish-image img {
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
