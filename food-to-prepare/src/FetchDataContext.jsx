@@ -11,6 +11,8 @@ const FetchDataProvider = ({ children }) => {
   const [showResults, setShowResults] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [selectedResult, setSelectedResult] = useState(null);
+  const [randomResult, setRandomResult] = useState(null);
+  const [showRandom, setShowRandom] = useState(false);
 
   const modalToggle = (result) => {
     setSelectedResult(result);
@@ -32,11 +34,25 @@ const FetchDataProvider = ({ children }) => {
     setSearchValue("");
   };
 
+  const fetchRandomMeal = async () => {
+    try {
+      const randomResponse = await axios.get(
+        "https://www.themealdb.com/api/json/v1/1/random.php"
+      );
+      setRandomResult(randomResponse.data.meals);
+      setShowRandom(true);
+    } catch (error) {
+      console.error("Error fetching random meal:", error);
+    }
+    console.log(randomResult);
+  };
+
   useEffect(() => {
     const fetchSearchResults = async () => {
       const response = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchValue}`
       );
+
       setSearchResults(response.data.meals);
     };
     fetchSearchResults();
@@ -54,6 +70,9 @@ const FetchDataProvider = ({ children }) => {
         modalToggle,
         selectedResult,
         closeSearchResults,
+        randomResult,
+        fetchRandomMeal,
+        showRandom,
       }}
     >
       {children}

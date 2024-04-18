@@ -1,8 +1,25 @@
+import { useContext } from "react";
+import { FetchDataContext } from "../FetchDataContext";
+import MealCard from "../components/MealCard";
 
 const RandomDish = () => {
+  const { fetchRandomMeal, showRandom, randomResult } =
+    useContext(FetchDataContext);
   return (
-    <div>RandomDish</div>
-  )
-}
+    <div className="random-dish">
+      <h1 className="random-header">
+        YOU DON’T KNOW WHAT TO COOK ? SAY LESS🍝
+      </h1>
 
-export default RandomDish
+      <div className="random-button">
+        <button onClick={fetchRandomMeal}>DeCiDe FoR Me😫</button>
+      </div>
+
+      <div className="card-display">
+        {showRandom && randomResult && randomResult.length > 0 && <MealCard />}
+      </div>
+    </div>
+  );
+};
+
+export default RandomDish;
