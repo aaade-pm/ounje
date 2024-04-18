@@ -13,6 +13,7 @@ const FetchDataProvider = ({ children }) => {
   const [selectedResult, setSelectedResult] = useState(null);
   const [randomResult, setRandomResult] = useState(null);
   const [showRandom, setShowRandom] = useState(false);
+  const [categories, setCategories] = useState([]);
 
   const modalToggle = (result) => {
     setSelectedResult(result);
@@ -52,7 +53,10 @@ const FetchDataProvider = ({ children }) => {
       const response = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchValue}`
       );
-
+      const categoriesResponse = await axios.get(
+        "https://www.themealdb.com/api/json/v1/1/categories.php"
+      );
+      setCategories(categoriesResponse.data.categories);
       setSearchResults(response.data.meals);
     };
     fetchSearchResults();
@@ -73,6 +77,7 @@ const FetchDataProvider = ({ children }) => {
         randomResult,
         fetchRandomMeal,
         showRandom,
+        categories,
       }}
     >
       {children}
