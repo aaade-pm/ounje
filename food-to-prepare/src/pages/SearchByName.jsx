@@ -1,7 +1,8 @@
 import NavBar from "../components/NavBar";
 import { useContext } from "react";
 import { FetchDataContext } from "../FetchDataContext";
-import { FaMagnifyingGlass } from "react-icons/fa6";
+import { FaMagnifyingGlass, FaYoutube } from "react-icons/fa6";
+import { MdOutlineClose } from "react-icons/md";
 
 const SearchByName = () => {
   const {
@@ -10,6 +11,10 @@ const SearchByName = () => {
     searchValue,
     searchDisplay,
     showResults,
+    showModal,
+    modalToggle,
+    selectedResult,
+    closeSearchResults,
   } = useContext(FetchDataContext);
 
   return (
@@ -41,9 +46,17 @@ const SearchByName = () => {
 
         {showResults && (
           <div className="search-results">
+            <div className="close-search">
+              <MdOutlineClose onClick={closeSearchResults} />
+            </div>
+
             {searchDisplay.length > 0
               ? searchDisplay.map((result) => (
-                  <div key={result.idMeal} className="search-results-content">
+                  <div
+                    key={result.idMeal}
+                    className="search-results-content"
+                    onClick={() => modalToggle(result)}
+                  >
                     <div className="search-results-img">
                       <img src={result.strMealThumb} alt="" />
                     </div>
@@ -56,6 +69,32 @@ const SearchByName = () => {
                   </div>
                 ))
               : null}
+          </div>
+        )}
+
+        {showResults && showModal && selectedResult && (
+          <div className="food-modal-container">
+            <div className="close-modal" onClick={modalToggle}>
+              <MdOutlineClose />
+            </div>
+
+            <div className="food-modal" key={selectedResult.idMeal}>
+              <div className="food-image">
+                <img src={selectedResult.strMealThumb} alt="" />
+              </div>
+              <div className="food-details">
+                <h3>{selectedResult.strMeal}</h3>
+                <h3>{selectedResult.strCategory}</h3>
+                <h3>{selectedResult.strArea}</h3>
+                <p>{selectedResult.strInstructions}</p>
+                <p className="watch-video">
+                  <span className="youtube-icon">
+                    <FaYoutube />
+                  </span>
+                  <a href={selectedResult.strYoutube}> Watch the preparation</a>
+                </p>
+              </div>
+            </div>
           </div>
         )}
       </main>

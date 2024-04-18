@@ -9,16 +9,27 @@ const FetchDataProvider = ({ children }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchDisplay, setSearchDisplay] = useState([]);
   const [showResults, setShowResults] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedResult, setSelectedResult] = useState(null);
+
+  const modalToggle = (result) => {
+    setSelectedResult(result);
+    setShowModal(!showModal);
+  };
+
   const handleChange = (e) => {
     setSearchValue(e.target.value);
   };
+
+  const closeSearchResults = () => {
+    setShowResults(false);
+  };
+
   const handleSearch = () => {
     setShowResults(true);
     searchResults.find((result) => result.strMeal.includes(searchValue));
     setSearchDisplay(searchResults);
     setSearchValue("");
-    console.log(searchValue);
-    console.log(searchResults);
   };
 
   useEffect(() => {
@@ -39,6 +50,10 @@ const FetchDataProvider = ({ children }) => {
         searchDisplay,
         searchResults,
         showResults,
+        showModal,
+        modalToggle,
+        selectedResult,
+        closeSearchResults,
       }}
     >
       {children}
