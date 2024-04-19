@@ -2,9 +2,12 @@ import { MdOutlineClose } from "react-icons/md";
 import { FetchDataContext } from "../FetchDataContext";
 import { FaYoutube } from "react-icons/fa";
 import { useContext } from "react";
+import SavedMeal from "./SavedMeal";
+import { SavedMealContext } from "../SavedMealContext";
 
 const Modal = () => {
   const { modalToggle, selectedResult } = useContext(FetchDataContext);
+  const { saveMeal } = useContext(SavedMealContext);
   return (
     <div className="food-modal-container">
       <div className="close-modal" onClick={modalToggle}>
@@ -16,6 +19,13 @@ const Modal = () => {
           <img src={selectedResult.strMealThumb} alt="" />
         </div>
         <div className="food-details">
+          <SavedMeal
+            name={selectedResult.strMeal}
+            category={selectedResult.strCategory}
+            area={selectedResult.strArea}
+            image={selectedResult.strMealThumb}
+            saveMeal={saveMeal}
+          />
           <h3>{selectedResult.strMeal}</h3>
           <h3>{selectedResult.strCategory}</h3>
           <h3>{selectedResult.strArea}</h3>

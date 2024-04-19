@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
 import { GiSpoon } from "react-icons/gi";
-import { FaRegHeart } from "react-icons/fa6";
+import { FaRegHeart, FaHeart } from "react-icons/fa6";
+import { useState, useContext } from "react";
+import FavoriteMeals from "./FavoriteMeals";
+import { SavedMealContext } from "../SavedMealContext";
 
 const NavBar = () => {
+  const [showFavorites, setShowFavorites] = useState(false);
+  const { savedMeals } = useContext(SavedMealContext);
+
+  const handleShowFavorites = () => {
+    setShowFavorites(!showFavorites);
+  };
   return (
     <>
       <nav>
@@ -34,14 +43,23 @@ const NavBar = () => {
         </div>
 
         <div className="favorite">
-          <h2>
-            SAVED{" "}
+          <h2 className="favorite-handler" onClick={handleShowFavorites}>
+            SAVED MEALS
             <span>
-              <FaRegHeart className="heart" />
+              {savedMeals.length > 0 ? (
+                <FaHeart className="white-heart" />
+              ) : (
+                <FaRegHeart className="heart" />
+              )}
             </span>
           </h2>
         </div>
       </nav>
+      {showFavorites && (
+        <div className="favorite-wrapper">
+          <FavoriteMeals />
+        </div>
+      )}
     </>
   );
 };

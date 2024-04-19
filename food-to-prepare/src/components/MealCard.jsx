@@ -6,6 +6,7 @@ import Modal from "./Modal";
 const MealCard = () => {
   const { randomResult, modalToggle, showModal, selectedResult } =
     useContext(FetchDataContext);
+
   const result = randomResult[0];
   return (
     <div>
