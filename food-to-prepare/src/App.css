@@ -125,6 +125,23 @@ nav ul li a:hover {
   height: 100%;
   box-fit: cover;
 }
+
+.favorite-content {
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.no-favorite {
+  width: 70%;
+  height: 30%;
+  margin: 50% auto;
+  color: var(--background-color);
+  background-color: var(--text-color);
+  text-align: center;
+}
+
 .search-bar {
   border: 1px solid var(--text-color);
   background-color: var(--text-color);
