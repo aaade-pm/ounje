@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FetchDataContext } from "../FetchDataContext";
+import { FetchDataContext } from "../contexts/FetchDataContext";
 import { FaYoutube } from "react-icons/fa";
 import Modal from "./Modal";
 

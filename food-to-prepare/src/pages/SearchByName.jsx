@@ -1,22 +1,22 @@
 import NavBar from "../components/NavBar";
 import { useContext } from "react";
-import { FetchDataContext } from "../FetchDataContext";
+import { ModalContext } from "../contexts/ModalContext";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { MdOutlineClose } from "react-icons/md";
 import Modal from "../components/Modal";
+import { SearchContext } from "../contexts/SearchContext";
 
 const SearchByName = () => {
+  const { showModal, modalToggle, selectedResult } = useContext(ModalContext);
+
   const {
     handleChange,
     handleSearch,
     searchValue,
     searchDisplay,
     showResults,
-    showModal,
-    modalToggle,
-    selectedResult,
     closeSearchResults,
-  } = useContext(FetchDataContext);
+  } = useContext(SearchContext);
 
   return (
     <>

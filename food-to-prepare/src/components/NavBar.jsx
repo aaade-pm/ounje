@@ -3,7 +3,7 @@ import { GiSpoon } from "react-icons/gi";
 import { FaRegHeart, FaHeart } from "react-icons/fa6";
 import { useState, useContext } from "react";
 import FavoriteMeals from "./FavoriteMeals";
-import { SavedMealContext } from "../SavedMealContext";
+import { SavedMealContext } from "../contexts/SavedMealContext";
 
 const NavBar = () => {
   const [showFavorites, setShowFavorites] = useState(false);

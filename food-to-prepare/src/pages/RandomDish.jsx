@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FetchDataContext } from "../FetchDataContext";
+import { FetchDataContext } from "../contexts/FetchDataContext";
 import MealCard from "../components/MealCard";
 import NavBar from "../components/NavBar";
 

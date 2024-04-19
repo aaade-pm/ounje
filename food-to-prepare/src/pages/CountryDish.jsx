@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { FetchDataContext } from "../FetchDataContext";
+import { CountryDishContext } from "../contexts/CountryDishContext";
 import NavBar from "../components/NavBar";
 
 const CountryDish = () => {
   const { countries, countryDishes, countryClick } =
-    useContext(FetchDataContext);
+    useContext(CountryDishContext);
   return (
     <div>
       <NavBar />

@@ -75,16 +75,22 @@ nav ul li a:hover {
 .heart {
   font-size: 1rem;
   margin-left: 5px;
+  cursor: pointer;
 }
 
 .red-heart {
   color: red;
+  cursor: pointer;
 }
 
 .white-heart {
   color: white;
   font-size: 1rem;
   margin-left: 5px;
+}
+
+.remove {
+  cursor: pointer;
 }
 
 .favorite-wrapper {
@@ -236,6 +242,7 @@ input:focus {
   gap: 10%;
   margin-top: 10px;
   scrolly: auto;
+  cursor: pointer;
 }
 
 .search-results-img {

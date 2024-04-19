@@ -1,4 +1,4 @@
-import { SavedMealContext } from "../SavedMealContext";
+import { SavedMealContext } from "../contexts/SavedMealContext";
 import { useContext } from "react";
 import { ImBin } from "react-icons/im";
 
@@ -24,7 +24,10 @@ const FavoriteMeals = () => {
                 <p>{meal.area}</p>
               </div>
               <div className="favorite-icon">
-                <ImBin onClick={() => handleRemoveMeal(meal)} />
+                <ImBin
+                  className="remove"
+                  onClick={() => handleRemoveMeal(meal)}
+                />
               </div>
             </div>
           </div>

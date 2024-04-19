@@ -1,9 +1,9 @@
 import NavBar from "../components/NavBar";
 import { useContext } from "react";
-import { FetchDataContext } from "../FetchDataContext";
+import { CategoriesContext } from "../contexts/CategoriesContext";
 
 const CategoryDish = () => {
-  const { categories } = useContext(FetchDataContext);
+  const { categories } = useContext(CategoriesContext);
   return (
     <div>
       <NavBar />
