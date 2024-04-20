@@ -11,6 +11,7 @@ import { ModalProvider } from "./contexts/ModalContext";
 import { RandomMealProvider } from "./contexts/RandomMealContext";
 import { CategoriesProvider } from "./contexts/CategoriesContext";
 import { CountryDishProvider } from "./contexts/CountryDishContext";
+import { MobileNavProvider } from "./contexts/MobileNavContext";
 
 function App() {
   return (
@@ -20,21 +21,26 @@ function App() {
           <CountryDishProvider>
             <FetchDataProvider>
               <SavedMealProvider>
-                <ModalProvider>
-                  <RandomMealProvider>
-                    <Router>
-                      <Routes>
-                        <Route path="/" element={<SearchByName />} />
-                        <Route path="/country-dish" element={<CountryDish />} />
-                        <Route path="/random-dish" element={<RandomDish />} />
-                        <Route
-                          path="/category-dish"
-                          element={<CategoryDish />}
-                        />
-                      </Routes>
-                    </Router>
-                  </RandomMealProvider>
-                </ModalProvider>
+                <MobileNavProvider>
+                  <ModalProvider>
+                    <RandomMealProvider>
+                      <Router>
+                        <Routes>
+                          <Route path="/" element={<SearchByName />} />
+                          <Route
+                            path="/country-dish"
+                            element={<CountryDish />}
+                          />
+                          <Route path="/random-dish" element={<RandomDish />} />
+                          <Route
+                            path="/category-dish"
+                            element={<CategoryDish />}
+                          />
+                        </Routes>
+                      </Router>
+                    </RandomMealProvider>
+                  </ModalProvider>
+                </MobileNavProvider>
               </SavedMealProvider>
             </FetchDataProvider>
           </CountryDishProvider>

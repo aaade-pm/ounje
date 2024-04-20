@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { FetchDataContext } from "../contexts/FetchDataContext";
+import { ModalContext } from "../contexts/ModalContext";
+import { RandomMealContext } from "../contexts/RandomMealContext";
 import { FaYoutube } from "react-icons/fa";
 import Modal from "./Modal";
 
 const MealCard = () => {
-  const { randomResult, modalToggle, showModal, selectedResult } =
-    useContext(FetchDataContext);
+  const { randomResult } = useContext(RandomMealContext);
+  const { modalToggle, showModal, selectedResult } = useContext(ModalContext);
 
   const result = randomResult[0];
   return (

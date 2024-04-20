@@ -21,13 +21,14 @@ const SearchByName = () => {
   return (
     <>
       <main>
+        <NavBar />
+
         <div className="search-text">
           <h1>
             Hi bestie! <br /> Do you have any food in mind?
           </h1>
           <p>Search for the recipe here 🔻</p>
         </div>
-        <NavBar />
 
         <div className="search-bar">
           <input

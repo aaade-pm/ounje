@@ -7,6 +7,12 @@ const CountryDishContext = createContext();
 const CountryDishProvider = ({ children }) => {
   const [countryDishes, setCountryDishes] = useState([]);
   const [countries, setCountries] = useState([]);
+  const [showOptions, setShowOptions] = useState(false);
+
+  const showCountryOptions = () => {
+    setShowOptions(!showOptions);
+    setCountryDishes([]);
+  };
 
   const countryClick = (e) => {
     const fetchCountryDishes = async () => {
@@ -15,6 +21,7 @@ const CountryDishProvider = ({ children }) => {
           `https://www.themealdb.com/api/json/v1/1/filter.php?a=${e.target.value}`
         );
         setCountryDishes(response.data.meals);
+        setShowOptions(false);
       } catch (error) {
         console.error(error);
       }
@@ -24,7 +31,14 @@ const CountryDishProvider = ({ children }) => {
 
   return (
     <CountryDishContext.Provider
-      value={{ countryDishes, countryClick, countries, setCountries }}
+      value={{
+        countryDishes,
+        countryClick,
+        countries,
+        setCountries,
+        showCountryOptions,
+        showOptions,
+      }}
     >
       {children}
     </CountryDishContext.Provider>

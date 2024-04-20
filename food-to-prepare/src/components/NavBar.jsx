@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
 import { GiSpoon } from "react-icons/gi";
 import { FaRegHeart, FaHeart } from "react-icons/fa6";
-import { useState, useContext } from "react";
+import { HiMenuAlt3 } from "react-icons/hi";
+import { useContext } from "react";
 import FavoriteMeals from "./FavoriteMeals";
 import { SavedMealContext } from "../contexts/SavedMealContext";
+import MobileNav from "./MobileNav";
+import { MobileNavContext } from "../contexts/MobileNavContext";
 
 const NavBar = () => {
-  const [showFavorites, setShowFavorites] = useState(false);
-  const { savedMeals } = useContext(SavedMealContext);
+  const { savedMeals, handleShowFavorites, showFavorites } =
+    useContext(SavedMealContext);
+  const { handleShowMenu, showMenu } = useContext(MobileNavContext);
 
-  const handleShowFavorites = () => {
-    setShowFavorites(!showFavorites);
-  };
   return (
     <>
+      {showMenu && <MobileNav />}
+
       <nav>
         <div className="logo-and-link">
           <div className="logo">
@@ -53,6 +56,10 @@ const NavBar = () => {
               )}
             </span>
           </h2>
+        </div>
+
+        <div className="menu">
+          <HiMenuAlt3 className="menu-bar" onClick={handleShowMenu} />
         </div>
       </nav>
       {showFavorites && (

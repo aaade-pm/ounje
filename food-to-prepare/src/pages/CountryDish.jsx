@@ -1,25 +1,21 @@
 import { useContext } from "react";
 import { CountryDishContext } from "../contexts/CountryDishContext";
 import NavBar from "../components/NavBar";
+import CountryDishButtons from "../components/CountryDishButtons";
+import CountryDishDropdown from "../components/CountryDishDropdown";
 
 const CountryDish = () => {
-  const { countries, countryDishes, countryClick } =
-    useContext(CountryDishContext);
+  const { countryDishes } = useContext(CountryDishContext);
   return (
     <div>
       <NavBar />
 
       <div className="country-buttons">
-        {countries.map((country) => (
-          <button
-            value={country.strArea}
-            key={Math.random()}
-            onClick={countryClick}
-            className="country-button"
-          >
-            {country.strArea}
-          </button>
-        ))}
+        <CountryDishButtons />
+      </div>
+
+      <div className="country-dropdown">
+        <CountryDishDropdown />
       </div>
 
       <div className="country-dishes">

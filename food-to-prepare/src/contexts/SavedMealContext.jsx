@@ -5,6 +5,10 @@ const SavedMealContext = createContext();
 
 const SavedMealProvider = ({ children }) => {
   const [savedMeals, setSavedMeals] = useState([]);
+  const [showFavorites, setShowFavorites] = useState(false);
+  const handleShowFavorites = () => {
+    setShowFavorites(!showFavorites);
+  };
 
   useEffect(() => {
     const savedMealsData = localStorage.getItem("savedMeals");
@@ -36,7 +40,14 @@ const SavedMealProvider = ({ children }) => {
   };
   return (
     <SavedMealContext.Provider
-      value={{ saveMeal, savedMeals, setSavedMeals, removeMeal }}
+      value={{
+        saveMeal,
+        savedMeals,
+        setSavedMeals,
+        removeMeal,
+        handleShowFavorites,
+        showFavorites,
+      }}
     >
       {children}
     </SavedMealContext.Provider>
