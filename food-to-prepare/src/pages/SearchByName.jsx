@@ -5,6 +5,7 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import { MdOutlineClose } from "react-icons/md";
 import Modal from "../components/Modal";
 import { SearchContext } from "../contexts/SearchContext";
+import { motion } from "framer-motion";
 
 const SearchByName = () => {
   const { showModal, modalToggle, selectedResult } = useContext(ModalContext);
@@ -23,12 +24,19 @@ const SearchByName = () => {
       <main>
         <NavBar />
 
-        <div className="search-text">
+        <motion.div
+          className="search-text"
+          animate={{
+            opacity: [0, 1],
+            scale: [0.2, 1],
+            transition: { duration: 1 },
+          }}
+        >
           <h1>
             Hi bestie! <br /> Do you have any food in mind?
           </h1>
           <p>Search for the recipe here 🔻</p>
-        </div>
+        </motion.div>
 
         <div className="search-bar">
           <input

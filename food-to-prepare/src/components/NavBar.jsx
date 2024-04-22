@@ -7,6 +7,7 @@ import FavoriteMeals from "./FavoriteMeals";
 import { SavedMealContext } from "../contexts/SavedMealContext";
 import MobileNav from "./MobileNav";
 import { MobileNavContext } from "../contexts/MobileNavContext";
+import { motion } from "framer-motion";
 
 const NavBar = () => {
   const { savedMeals, handleShowFavorites, showFavorites } =
@@ -14,19 +15,26 @@ const NavBar = () => {
   const { handleShowMenu, showMenu } = useContext(MobileNavContext);
 
   return (
-    <>
+    <motion.div>
       {showMenu && <MobileNav />}
 
       <nav>
         <div className="logo-and-link">
-          <div className="logo">
+          <motion.div
+            className="logo"
+            animate={{
+              opacity: [0, 1],
+              x: [-20, 0],
+              transition: { duration: 1 },
+            }}
+          >
             <h1>
               Ounjẹ
               <span>
                 <GiSpoon className="spoon" />
               </span>
             </h1>
-          </div>
+          </motion.div>
 
           <ul>
             <li>
@@ -45,7 +53,14 @@ const NavBar = () => {
           </ul>
         </div>
 
-        <div className="favorite">
+        <motion.div
+          className="favorite"
+          animate={{
+            opacity: [0, 1],
+            x: [20, 0],
+            transition: { duration: 1 },
+          }}
+        >
           <h2 className="favorite-handler" onClick={handleShowFavorites}>
             SAVED MEALS
             <span>
@@ -56,18 +71,25 @@ const NavBar = () => {
               )}
             </span>
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="menu">
+        <motion.div
+          className="menu"
+          animate={{
+            opacity: [0, 1],
+            x: [20, 0],
+            transition: { duration: 1 },
+          }}
+        >
           <HiMenuAlt3 className="menu-bar" onClick={handleShowMenu} />
-        </div>
+        </motion.div>
       </nav>
       {showFavorites && (
         <div className="favorite-wrapper">
           <FavoriteMeals />
         </div>
       )}
-    </>
+    </motion.div>
   );
 };
 
