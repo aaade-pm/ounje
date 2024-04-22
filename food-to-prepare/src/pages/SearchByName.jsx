@@ -26,6 +26,9 @@ const SearchByName = () => {
 
         <motion.div
           className="search-text"
+          initial={{
+            opacity: 0,
+          }}
           animate={{
             opacity: [0, 1],
             scale: [0.2, 1],
