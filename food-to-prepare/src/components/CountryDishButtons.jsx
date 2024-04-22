@@ -13,9 +13,13 @@ const CountryDishButtons = () => {
           key={Math.random()}
           onClick={countryClick}
           className="country-button"
+          initial={{
+            opacity: 0,
+            y: -20,
+          }}
           animate={{
             opacity: [0, 1],
-            y: [-20, 0],
+            y: [-20, 20, 0],
             transition: { duration: 1 },
           }}
         >

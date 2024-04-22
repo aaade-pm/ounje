@@ -22,6 +22,10 @@ const NavBar = () => {
         <div className="logo-and-link">
           <motion.div
             className="logo"
+            initial={{
+              opacity: 0,
+              x: -20,
+            }}
             animate={{
               opacity: [0, 1],
               x: [-20, 0],
@@ -75,6 +79,10 @@ const NavBar = () => {
 
         <motion.div
           className="menu"
+          initial={{
+            opacity: 0,
+            x: 20,
+          }}
           animate={{
             opacity: [0, 1],
             x: [20, 0],

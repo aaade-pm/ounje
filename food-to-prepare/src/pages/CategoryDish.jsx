@@ -6,6 +6,9 @@ import { AnimatePresence, motion } from "framer-motion";
 const CategoryDish = () => {
   const { categories } = useContext(CategoriesContext);
   const variants = {
+    initial: {
+      opacity: 0,
+    },
     animate: {
       opacity: [0, 1],
       x: [-1240, 0],
@@ -31,6 +34,7 @@ const CategoryDish = () => {
               key={category.idCategory}
               className="category"
               variants={variants}
+              initial="initial"
               animate="animate"
             >
               <div className="category-image">
