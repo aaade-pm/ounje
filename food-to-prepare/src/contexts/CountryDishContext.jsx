@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
@@ -14,7 +14,7 @@ const CountryDishProvider = ({ children }) => {
     setCountryDishes([]);
   };
 
-  const countryClick = (e) => {
+  const countryClick = useCallback((e) => {
     const fetchCountryDishes = async () => {
       try {
         const response = await axios.get(
@@ -27,7 +27,7 @@ const CountryDishProvider = ({ children }) => {
       }
     };
     fetchCountryDishes();
-  };
+  }, []);
 
   return (
     <CountryDishContext.Provider

@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
@@ -8,7 +8,7 @@ const RandomMealProvider = ({ children }) => {
   const [randomResult, setRandomResult] = useState(null);
   const [showRandom, setShowRandom] = useState(false);
 
-  const fetchRandomMeal = async () => {
+  const fetchRandomMeal = useCallback(async () => {
     try {
       const randomResponse = await axios.get(
         "https://www.themealdb.com/api/json/v1/1/random.php"
@@ -18,8 +18,8 @@ const RandomMealProvider = ({ children }) => {
     } catch (error) {
       console.error("Error fetching random meal:", error);
     }
-    console.log(randomResult);
-  };
+    randomResult;
+  }, [randomResult]);
 
   return (
     <RandomMealContext.Provider

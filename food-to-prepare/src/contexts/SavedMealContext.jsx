@@ -19,7 +19,6 @@ const SavedMealProvider = ({ children }) => {
 
   const saveMeal = (mealToAdd) => {
     if (savedMeals.some((meal) => meal.name === mealToAdd.name)) {
-      console.log("Meal already saved");
       return;
     }
 
@@ -36,7 +35,6 @@ const SavedMealProvider = ({ children }) => {
     );
     setSavedMeals(updatedMeals);
     localStorage.setItem("savedMeals", JSON.stringify(updatedMeals));
-    console.log("remove meal");
   };
   return (
     <SavedMealContext.Provider
