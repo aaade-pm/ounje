@@ -10,7 +10,7 @@ const FavoriteMeals = () => {
   };
 
   return (
-    <div>
+    <>
       {savedMeals.length > 0 ? (
         savedMeals.map((meal, index) => (
           <div key={index} className="favorite-card">
@@ -37,7 +37,7 @@ const FavoriteMeals = () => {
           <h2>No saved meals</h2>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

@@ -6,7 +6,7 @@ const CountryDishDropdown = () => {
     useContext(CountryDishContext);
 
   return (
-    <div>
+    <>
       <button onClick={showCountryOptions} className="mobile-country-button">
         Choose country
       </button>
@@ -24,7 +24,7 @@ const CountryDishDropdown = () => {
             </div>
           ))}
       </ul>
-    </div>
+    </>
   );
 };
 

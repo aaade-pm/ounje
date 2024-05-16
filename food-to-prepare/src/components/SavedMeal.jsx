@@ -1,3 +1,4 @@
+import React from "react";
 import { FaRegHeart, FaHeart } from "react-icons/fa6";
 import PropTypes from "prop-types";
 import { useState } from "react";
@@ -34,4 +35,6 @@ SavedMeal.propTypes = {
   saveMeal: PropTypes.func,
 };
 
-export default SavedMeal;
+const MemoizedSavedMeal = React.memo(SavedMeal);
+
+export default MemoizedSavedMeal;

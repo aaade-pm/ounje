@@ -10,7 +10,7 @@ const MealCard = () => {
 
   const result = randomResult[0];
   return (
-    <div>
+    <>
       <div className="meal-card" onClick={() => modalToggle(result)}>
         <div className="meal-image">
           <img src={result.strMealThumb} alt="" />
@@ -29,7 +29,7 @@ const MealCard = () => {
       </div>
 
       {showModal && selectedResult && <Modal />}
-    </div>
+    </>
   );
 };
 

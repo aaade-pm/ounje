@@ -9,43 +9,51 @@ const MobileNav = () => {
   const { savedMeals, handleShowFavorites } = useContext(SavedMealContext);
 
   return (
-    <div className="mobile-nav">
-      <MdOutlineRestaurantMenu className="menu-icon" onClick={handleShowMenu} />
-      <ul>
-        <li>
-          <Link to="/" onClick={handleShowMenu}>
-            HOME
-          </Link>
-        </li>
-        <li>
-          <Link to="/country-dish" onClick={handleShowMenu}>
-            COUNTRY DISH
-          </Link>
-        </li>
-        <li>
-          <Link to="/category-dish" onClick={handleShowMenu}>
-            CATEGORIES
-          </Link>
-        </li>
-        <li>
-          <Link to="/random-dish" onClick={handleShowMenu}>
-            RANDOM DISH
-          </Link>
-        </li>
-        <div className="mobile-favorite">
-          <h2 className="mobile-favorite-handler" onClick={handleShowFavorites}>
-            SAVED MEALS
-            <span>
-              {savedMeals.length > 0 ? (
-                <FaHeart className="mobile-heart" />
-              ) : (
-                <FaRegHeart className="mobile-heart" />
-              )}
-            </span>
-          </h2>
-        </div>
-      </ul>
-    </div>
+    <>
+      <div className="mobile-nav">
+        <MdOutlineRestaurantMenu
+          className="menu-icon"
+          onClick={handleShowMenu}
+        />
+        <ul>
+          <li>
+            <Link to="/" onClick={handleShowMenu}>
+              HOME
+            </Link>
+          </li>
+          <li>
+            <Link to="/country-dish" onClick={handleShowMenu}>
+              COUNTRY DISH
+            </Link>
+          </li>
+          <li>
+            <Link to="/category-dish" onClick={handleShowMenu}>
+              CATEGORIES
+            </Link>
+          </li>
+          <li>
+            <Link to="/random-dish" onClick={handleShowMenu}>
+              RANDOM DISH
+            </Link>
+          </li>
+          <div className="mobile-favorite">
+            <h2
+              className="mobile-favorite-handler"
+              onClick={handleShowFavorites}
+            >
+              SAVED MEALS
+              <span>
+                {savedMeals.length > 0 ? (
+                  <FaHeart className="mobile-heart" />
+                ) : (
+                  <FaRegHeart className="mobile-heart" />
+                )}
+              </span>
+            </h2>
+          </div>
+        </ul>
+      </div>
+    </>
   );
 };
 

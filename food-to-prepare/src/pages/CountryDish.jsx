@@ -37,7 +37,11 @@ const CountryDish = () => {
               }}
             >
               <div className="dish-image">
-                <img src={dish.strMealThumb} alt="" />
+                <img
+                  src={dish.strMealThumb}
+                  alt="dish picture"
+                  loading="lazy"
+                />
               </div>
               <h2>{dish.strMeal}</h2>
             </motion.div>
