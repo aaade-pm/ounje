@@ -99,7 +99,7 @@ nav ul li a:hover {
 
 .favorite-wrapper {
   height: 295px;
-  width: 300px;
+  width: 400px;
   background-color: var(--text-color);
   position: absolute;
   z-index: 100;
@@ -117,11 +117,10 @@ nav ul li a:hover {
   background-color: var(--background-color);
   color: var(--text-color);
   width: 90%;
-  height: 20%;
   margin: 5px auto;
   display: flex;
   gap: 10px;
-  padding: 5px;
+  padding: 20px;
   border-radius: 12px;
 }
 
@@ -416,6 +415,11 @@ p {
   gap: 10px;
 }
 
+.category-dish-title {
+  display: flex;
+  justify-content: center;
+}
+
 .country-dropdown {
   display: none;
 }
@@ -688,6 +692,10 @@ p {
     padding: 10px 20px;
     cursor: pointer;
   }
+
+  .mobile-favorite {
+    cursor: pointer;
+  }
 }
 
 @media (min-width: 481px) and (max-width: 1024px) {
@@ -755,19 +763,6 @@ p {
     font-size: 1.6rem;
     color: var(--background-color);
     margin-left: 10px;
-  }
-
-  .favorite-wrapper {
-    height: 295px;
-    width: 480px;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    position: absolute;
-    z-index: 100;
-    left: 10%;
-    top: 470px;
-    border-radius: 12px;
-    overflow-y: scroll;
   }
 
   .no-favorite {
@@ -840,7 +835,56 @@ p {
     margin-top: 20px;
   }
 
+  .country-buttons {
+    display: none;
+  }
+
+  .country-dropdown {
+    margin: 20px 20px;
+    display: block;
+  }
+
+  .mobile-country-button {
+    /* width: 50%; */
+    border: 1px solid var(--text-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 10px 60px;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+
+  .mobile-country-options {
+    background-color: var(--text-color);
+    width: 50%;
+  }
+
+  .mobile-country-options button {
+    width: 100%;
+    border: none;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .country-dishes {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
   .dish {
+    height: 210px;
+    width: 250px;
+    border-radius: 10px;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    text-align: center;
+  }
+
+  /* .dish {
     height: 250px;
     width: 350px;
     border-radius: 10px;
@@ -848,7 +892,7 @@ p {
     color: var(--background-color);
     text-align: center;
   }
-
+ */
   .random-header {
     font-size: 1.8rem;
   }
@@ -856,9 +900,50 @@ p {
   .random-button {
     margin-top: 20px;
   }
+
+  .category-dish h1 {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 10px 10px;
+  }
+
+  .category {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 15px;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .random-header {
+    padding: 40px 15px 0 15px;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .favorite-wrapper {
+    height: 227px;
+    width: 350px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    position: absolute;
+    z-index: 100;
+    left: 2%;
+    top: 50px;
+    border-radius: 12px;
+    overflow-y: scroll;
+  }
+
+  .mobile-favorite {
+    cursor: pointer;
+  }
 }
 
 @media (min-width: 1025px) and (max-width: 1240px) {
+  nav {
+    margin: 5px 2%;
+  }
   .search-bar {
     top: 300px;
     left: 15%;
@@ -893,5 +978,14 @@ p {
 
   .search-results-text {
     width: 65%;
+  }
+
+  .country-dishes {
+    padding: 10px 20px 10px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    gap: 20px;
+    margin-top: 20px;
   }
 }

@@ -27,7 +27,9 @@ const CategoryDish = () => {
         <NavBar />
 
         <motion.div className="category-dish">
-          <h1>THE DIFFERENT CATEGORIES OF DISHES</h1>
+          <div className="category-dish-title">
+            <h1>THE DIFFERENT CATEGORIES OF DISHES</h1>
+          </div>
 
           {categories.map((category) => (
             <motion.div
